@@ -5,6 +5,7 @@
   "description": "Partager des histoires dans l'anonymat",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mohamed sangare",
