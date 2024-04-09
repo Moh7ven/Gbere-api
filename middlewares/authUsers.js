@@ -11,12 +11,16 @@ export default (req, res, next) => {
       userId: userId,
     };
 
-    next();
-    /* if (req.body.userId && req.body.userId !== userId) {
-      throw "Invalid user ID";
+    /*Pour empêcher tout intrusion dans la base de donnée sans id */
+    if (!req.auth.userId) {
+      res.status(401).json({
+        error: "Invalid user ID",
+        message: "Vous n'etes pas autorisé",
+        status: false,
+      });
     } else {
       next();
-    } */
+    }
   } catch (error) {
     res.status(401).json({
       error: error,
